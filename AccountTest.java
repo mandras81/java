@@ -8,25 +8,32 @@ public class AccountTest
 	Account account2 = new Account("John Blue", -7.53);
 	
 	// display initial balance of each object
-	System.out.printf("%s balance: $ %n",
-	account1.getName(), );
-	System.out.printf("%s balance: $ %n%n",
-	account2.getName(), );
+	System.out.printf("%s balance: $%.2f%n",
+	account1.getName(),account1.getBalance() );
+	System.out.printf("%s balance: $%.2f%n%n",
+	account2.getName(), account2.getBalance() );
 	
 	// create a Scanner object to obtain input from the command window
 	Scanner input = new Scanner(System.in);
-	
-	// create an Account object and assign it to myAccount
-	Account myAccount = new Account("arrgh");
-
-	// display initial value of name (null)
-	System.out.printf("Initial name is: %s%n%n", myAccount.getName());
- 
-	System.out.println("Please enter the name:");
-	String theName = input.nextLine(); // read a line of text
-	myAccount.setName(theName);
-	System.out.println(); // outputs a blank line
-	// display the name stored in object myAccount
-	System.out.printf("Name in object myAccount is:%n%s%n",	myAccount.getName());
- }
- }
+	System.out.print("Enter deposit amount for account1: "); // prompt
+	double depositAmount = input.nextDouble(); // obtain user input
+	System.out.printf("%nadding %.2f to account1 balance%n%n",
+	depositAmount);
+	account1.deposit(depositAmount); // add to account1’s balance
+	// display balances
+	System.out.printf("%s balance: $ %.2f %n",
+	account1.getName(), account1.getBalance() );
+	System.out.printf("%s balance: $ %.2f %n%n",
+	account2.getName(), account2.getBalance() );
+	System.out.print("Enter deposit amount for account2: "); // prompt
+	depositAmount = input.nextDouble(); // obtain user input
+	System.out.printf("%nadding %.2f to account2 balance%n%n",
+	depositAmount);
+	account2.deposit(depositAmount); // add to account2 balance
+	// display balances
+	System.out.printf("%s balance: $ %.2f %n",
+	account1.getName(), account1.getBalance() );
+	System.out.printf("%s balance: $ %.2f %n%n",
+	account2.getName(), account2.getBalance() );
+	} // end main
+} // end class AccountTest
